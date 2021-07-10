@@ -1,12 +1,11 @@
 .navbar {
-    opacity: 0.5;
     position: absolute;
     width: 100%;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.502);
+
 }
 
 a.nav-link {
-
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: bold;
@@ -16,11 +15,10 @@ a.nav-link {
     text-transform: uppercase;
     color: #FFFFFF;
 
-
 }
 
 a.navbar-brand {
-    font-family: Open Sans;
+    font-family: 'Open Sans';
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
