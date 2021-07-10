@@ -1,0 +1,26 @@
+.navbar {
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+}
+
+.jumbotron {
+    padding-top: 15rem;
+    background-image: url("/asset/img/main-bg.jpg");
+    background-size: 100% auto;
+    height: 960.14px;
+
+
+}
+
+.gallery {
+    background-image: url("/asset/img/the-games-bg.jpg");
+    background-size: 100% auto;
+    height: 1051.43px;
+}
+
+.feature {
+    background-image: url("/asset/img/features.jpg");
+    background-size: 100% auto;
+    height: 870.26px;
+}
