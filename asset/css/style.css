@@ -1,7 +1,8 @@
 .navbar {
-    opacity: 0.8;
+    opacity: 0.5;
     position: absolute;
     width: 100%;
+    background-color: black;
 }
 
 a.nav-link {
@@ -14,6 +15,7 @@ a.nav-link {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #FFFFFF;
+
 
 }
 
@@ -35,7 +37,53 @@ a.navbar-brand {
     background-image: radial-gradient(189.96% 61.18% at 50% 38.82%, rgba(255, 181, 72, 0) 0%, rgba(52, 44, 29, 0.80319) 73.22%, #08090A 99.74%), url("/asset/img/main-bg.jpg");
     background-size: 100% auto;
     height: 960.14px;
+}
 
+h1.main {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 83px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+h3.main {
+    margin-top: 57px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    letter-spacing: 2px;
+
+    color: #FFFFFF;
+}
+
+a.main.btn {
+    margin-top: 57px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+
+
+
+
+    color: #1A1917;
+
+    padding-top: 15px;
+    width: 260px;
+    height: 60px;
 
 }
 
