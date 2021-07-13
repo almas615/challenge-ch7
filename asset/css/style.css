@@ -31,11 +31,12 @@ a.navbar-brand {
 }
 
 .jumbotron {
-    padding-top: 15rem;
+
     background-image: radial-gradient(189.96% 61.18% at 50% 38.82%, rgba(255, 181, 72, 0) 0%, rgba(52, 44, 29, 0.80319) 73.22%, #08090A 99.74%), url("/asset/img/main-bg.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
+
 }
 
 div.main {
@@ -97,11 +98,68 @@ a.main.btn {
     height: 100vh;
 }
 
+.content-galeri {
+    height: 100%;
+
+}
+
+.text-1 {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 2px;
+
+    color: #FFFFFF;
+}
+
+.text-2 {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.carousel-indicators {
+    height: 10px;
+
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -50px;
+    margin-right: -50px;
+    width: 5%;
+    height: 32px;
+}
+
+.carousel-control-prev-icon {
+    background-image: url(/asset/img/prev.svg);
+}
+
+.carousel-control-next-icon {
+    background-image: url(/asset/img/next.svg);
+}
+
 .feature {
     background-image: radial-gradient(51.1% 80.48% at 30.85% 53.65%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 19.2%, rgba(4, 5, 6, 0.520671) 47.48%, #080A0B 99.74%), url("/asset/img/features.jpg");
     background-size: cover;
-    background-position: left;
-    height: 100vh;
+    background-position: center center;
+    height: 120vh;
 }
 
 .requirements {
@@ -116,7 +174,7 @@ a.main.btn {
 }
 
 .scores {
-    background-image: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%), url("/asset/img/top-score-bg.png");
+    background-color: #080A0B;
     /* background: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%); */
     background-size: cover;
     background-position: center center;
