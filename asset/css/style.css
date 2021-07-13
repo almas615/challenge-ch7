@@ -162,6 +162,68 @@ a.main.btn {
     height: 120vh;
 }
 
+ul.feature-list {
+    margin-top: 70px;
+    list-style-position: outside;
+
+}
+
+
+ul.feature-list li {
+    list-style: url("/asset/img/Ellipse.svg");
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    letter-spacing: 2px;
+    padding-left: 20px;
+    margin-top: 36px;
+    margin-bottom: 17px;
+    color: #FFB548;
+
+}
+
+ul.feature-list li.active {
+    list-style: url("/asset/img/Ellipse-fill.svg");
+}
+
+/* ul.feature-list li.active::after {
+    border-left: 1px solid white;
+    bottom: 0;
+    content: "";
+    left: 27px;
+    position: relative;
+    top: 0;
+
+}
+
+ul.feature-list li.active::before {
+    border-left: 1px solid white;
+    bottom: 0;
+    content: "";
+    left: 27px;
+    position: relative;
+    top: 0;
+
+} */
+
+ul.feature-list p {
+    position: relative;
+    height: 100px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* or 122% */
+    padding-left: 19px;
+    text-align: justify;
+    border-left: 1px solid white;
+    color: #FFFFFF;
+}
+
 .requirements {
     background-image: radial-gradient(33.26% 45% at 64.32% 47.1%, rgba(255, 255, 255, 0) 3.36%, rgba(0, 0, 0, 0) 19.22%, #080A0B 99.74%), url("/asset/img/requirements.png");
     background-size: cover;
