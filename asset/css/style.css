@@ -1,106 +1,24 @@
-.navbar {
-    position: absolute;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.502);
-
-}
-
-a.nav-link {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-
-}
-
-a.navbar-brand {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 33px;
-
-
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-}
-
-.jumbotron {
-
-    background-image: radial-gradient(189.96% 61.18% at 50% 38.82%, rgba(255, 181, 72, 0) 0%, rgba(52, 44, 29, 0.80319) 73.22%, #08090A 99.74%), url("/asset/img/main-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-
-}
-
-div.main {
-    text-align: center;
-}
-
-h1.main {
+/* css text start */
+.text-main {
     font-family: Arial;
     font-style: normal;
     font-weight: bold;
     font-size: 72px;
     line-height: 83px;
-
     letter-spacing: 3px;
     text-transform: uppercase;
 
     color: #FFFFFF;
 }
 
-h3.main {
-    margin-top: 57px;
-
-    font-family: Arial;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    /* identical to box height */
-
-    letter-spacing: 2px;
-
-    color: #FFFFFF;
-}
-
-a.main.btn {
-    margin-top: 57px;
+.text-btn {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 22px;
     /* identical to box height */
-
-
-
-
     color: #1A1917;
-
-    padding-top: 15px;
-    width: 260px;
-    height: 60px;
-
-}
-
-.gallery {
-    background-image: radial-gradient(136.03% 54.57% at 50% 48.04%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 60.63%, #080A0B 99.74%), url("/asset/img/the-games-bg.jpg");
-    background-size: cover;
-    background-position: left;
-    height: 100vh;
-}
-
-.content-galeri {
-    height: 100%;
-
 }
 
 .text-1 {
@@ -150,6 +68,82 @@ a.main.btn {
     color: #FFFFFF;
 }
 
+/* css text end */
+
+/* css navbar start */
+.navbar {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.502);
+
+}
+
+a.nav-link {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+}
+
+a.navbar-brand {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* css navbar end */
+
+/* css main start */
+.jumbotron {
+
+    background-image: radial-gradient(189.96% 61.18% at 50% 38.82%, rgba(255, 181, 72, 0) 0%, rgba(52, 44, 29, 0.80319) 73.22%, #08090A 99.74%), url("/asset/img/main-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+}
+
+div.main {
+    text-align: center;
+}
+
+
+
+a.main.btn {
+    margin-top: 57px;
+    padding-top: 15px;
+    width: 260px;
+    height: 60px;
+
+}
+
+/* css main end */
+
+/* css galeri start */
+
+.gallery {
+    background-image: radial-gradient(136.03% 54.57% at 50% 48.04%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 60.63%, #080A0B 99.74%), url("/asset/img/the-games-bg.jpg");
+    background-size: cover;
+    background-position: left;
+    height: 100vh;
+}
+
+.content-galeri {
+    height: 100%;
+
+}
+
+
 .carousel-indicators {
     height: 10px;
 
@@ -179,6 +173,9 @@ a.main.btn {
     background-image: url(/asset/img/next.svg);
 }
 
+/* css galeri end */
+
+/* css feature start */
 .feature {
     background-image: radial-gradient(51.1% 80.48% at 30.85% 53.65%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 19.2%, rgba(4, 5, 6, 0.520671) 47.48%, #080A0B 99.74%), url("/asset/img/features.jpg");
     background-size: cover;
@@ -204,25 +201,6 @@ ul.feature-list li.active {
     list-style: url("/asset/img/Ellipse-fill.svg");
 }
 
-/* ul.feature-list li.active::after {
-    border-left: 1px solid white;
-    bottom: 0;
-    content: "";
-    left: 27px;
-    position: relative;
-    top: 0;
-
-}
-
-ul.feature-list li.active::before {
-    border-left: 1px solid white;
-    bottom: 0;
-    content: "";
-    left: 27px;
-    position: relative;
-    top: 0;
-
-} */
 
 ul.feature-list p {
     position: relative;
@@ -231,6 +209,8 @@ ul.feature-list p {
     border-left: 1px solid white;
 
 }
+
+/* css feature end */
 
 .requirements {
     background-image: radial-gradient(33.26% 45% at 64.32% 47.1%, rgba(255, 255, 255, 0) 3.36%, rgba(0, 0, 0, 0) 19.22%, #080A0B 99.74%), url("/asset/img/requirements.png");
