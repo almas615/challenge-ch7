@@ -126,6 +126,30 @@ a.main.btn {
     color: #FFFFFF;
 }
 
+.text-3 {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 2px;
+
+    color: #FFB548;
+}
+
+.text-4 {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* or 122% */
+
+    text-align: justify;
+
+    color: #FFFFFF;
+}
+
 .carousel-indicators {
     height: 10px;
 
@@ -171,18 +195,9 @@ ul.feature-list {
 
 ul.feature-list li {
     list-style: url("/asset/img/Ellipse.svg");
-    font-family: Arial;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-
-    letter-spacing: 2px;
     padding-left: 20px;
     margin-top: 36px;
     margin-bottom: 17px;
-    color: #FFB548;
-
 }
 
 ul.feature-list li.active {
@@ -212,16 +227,9 @@ ul.feature-list li.active::before {
 ul.feature-list p {
     position: relative;
     height: 100px;
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    /* or 122% */
     padding-left: 19px;
-    text-align: justify;
     border-left: 1px solid white;
-    color: #FFFFFF;
+
 }
 
 .requirements {
@@ -229,14 +237,33 @@ ul.feature-list p {
     background-size: cover;
     background-position: right;
     height: 100vh;
-
-
-
     height: 960.16px;
 }
 
+table,
+td,
+th {
+    border: 1px solid #979797;
+}
+
+table {
+    margin-top: 120px;
+    height: 400px;
+    width: 573.2px;
+    table-layout: fixed;
+    align-items: top;
+}
+
+td {
+    vertical-align: top;
+    padding: 15px;
+}
+
+
+
 .scores {
-    background-color: #080A0B;
+    background-image: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%), url("/asset/img/bg_topscores.jpg");
+
     /* background: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%); */
     background-size: cover;
     background-position: center center;
