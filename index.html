@@ -123,6 +123,7 @@
                     <p class="text-2 ">FEATURE</p>
                     <ul class="feature-list">
                         <li class="active text-3" onclick="myFunction()">TRADITIONAL GAMES</li>
+
                         <p class="text-4" id="child-list">If you miss your childhood, we provide many traditional games
                             here</p>
                         <li class="text-3">GAME SUIT</li>
@@ -179,23 +180,71 @@
     <!-- scores start -->
     <section class="scores" id="scores">
         <div class="container-xl ">
-            <div class="row" style="border: 1px solid rgb(4, 4, 4);height: 80vh;">
-                <div class="col-xl-6 d-flex justify-content-center align-items-center"
-                    style="border: 1px solid yellow;">
-                    <p>asdfasddsfsadsafd</p>
+            <div class="row d-flex align-items-center" style="border: 1px solid rgb(4, 4, 4);height: 80vh;">
+                <div class="col-xl-6 ">
+                    <p class="text-2">TOP SCORES</p>
+                    <p class="text-4">This top score from various games provided on this platform</p>
+                    <a class="btn top-scores btn-warning text-btn" href="">see more</a>
                 </div>
-                <div class="col-xl-6" style="border: 1px solid yellow;">
-                    <div class="row p-2 d-flex justify-content-end align-items-center"
-                        style="border: 1px solid blue; height: 26.6vh;">
-                        <div class="col-9" style="border: 1px solid red;height: 95%;"></div>
+                <div class="col-xl-6">
+                    <div class="row container-quotes p-2 d-flex justify-content-end align-items-center"
+                        style=" height: 26.6vh;">
+                        <div class="col-9 quotes" style="height: 95%;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img class="rounded-circle " src="/asset/img/evan.jpg" alt="" width="65px">
+                                </div>
+                                <div class="col-8">
+                                    <p class="text-3">Evant Lahti</p>
+                                    <p class="text-4" style="opacity: 0.5; margin-top: -15px;">PC Gamer</p>
+                                </div>
+                                <div class="col-1"><img src="/asset/img/twitter.svg" alt=""></div>
+                            </div>
+                            <div class="row pt-3">
+                                <p class="text-4">“One of my gaming highlights of the year.”</p>
+                                <p class="text-5">June 18, 2021</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row p-2 d-flex justify-content-start align-items-center"
-                        style="border: 1px solid blue; height: 26.6vh;">
-                        <div class="col-9" style="border: 1px solid red; height: 95%;"></div>
+                    <div class="row container-quotes p-2 d-flex justify-content-start align-items-center"
+                        style=" height: 26.6vh;">
+                        <div class="col-9 col quotes" style="height: 95%;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img class="rounded-circle " src="/asset/img/evan.jpg" alt="" width="65px">
+                                </div>
+                                <div class="col-8">
+                                    <p class="text-3">Evant Lahti</p>
+                                    <p class="text-4" style="opacity: 0.5; margin-top: -15px;">PC Gamer</p>
+                                </div>
+                                <div class="col-1"><img src="/asset/img/twitter.svg" alt=""></div>
+                            </div>
+                            <div class="row pt-3">
+                                <p class="text-4">“One of my gaming highlights of the year.”</p>
+                                <p class="text-5">June 18, 2021</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row p-2 d-flex justify-content-end align-items-center"
-                        style="border: 1px solid blue; height: 26.6vh;">
-                        <div class="col-9" style="border: 1px solid red; height: 95%;"></div>
+                    <div class="row container-quotes  p-2 d-flex justify-content-end align-items-center"
+                        style=" height: 26.6vh;">
+                        <div class="col-9 quotes" style=" height: 95%;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img class="rounded-circle " style="z-index: 2;" src="/asset/img/evan.jpg" alt=""
+                                        width="65px">
+                                    <span class="circle" style="z-index: 1;"></span>
+                                </div>
+                                <div class="col-8">
+                                    <p class="text-3">Evant Lahti</p>
+                                    <p class="text-4" style="opacity: 0.5; margin-top: -15px;">PC Gamer</p>
+                                </div>
+                                <div class="col-1"><img src="/asset/img/twitter.svg" alt=""></div>
+                            </div>
+                            <div class="row pt-3">
+                                <p class="text-4">“One of my gaming highlights of the year.”</p>
+                                <p class="text-5">June 18, 2021</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -204,9 +253,34 @@
     </section>
     <!-- scores end -->
 
-    <footer class="text-white p-2 text-center">
-        <p>Created by Almas Adlil Wafi</p>
+    <footer class="text-white p-2 ">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-6">
+                    <div class="skull">
+                    </div>
+                </div>
+                <div class="col-6 align-items-center">
+                    <p class="text-1">Want to stay in touch?</p>
+                    <p class="text-6">newsletter SUBSCRIBE </p>
+                    <p class="text-4">In order to start receiving our news, all you have to do is enter your email
+                        address. Everything
+                        else will be taken care of by us. We will send you emails containing information about game. We
+                        don’t spam.</p>
 
+                    <form class="row g-3 mt-5">
+
+                        <div class="col-auto input-email">
+                            <label class="text-5" for="inputPassword2" class="visually">your email address</label>
+                            <input type="text" class="form-control footer" id="inputPassword2">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-warning mb-3 btn-email text-btn">Subscribe now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->

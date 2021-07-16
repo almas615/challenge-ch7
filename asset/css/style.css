@@ -56,14 +56,39 @@
 }
 
 .text-4 {
-    font-family: Open Sans;
+    font-family: " Open Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
     /* or 122% */
 
-    text-align: justify;
+
+
+    color: #FFFFFF;
+}
+
+.text-5 {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.text-6 {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 65px;
+    line-height: 75px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 
     color: #FFFFFF;
 }
@@ -143,12 +168,6 @@ a.main.btn {
 
 }
 
-
-.carousel-indicators {
-    height: 10px;
-
-}
-
 .carousel-indicators [data-bs-target] {
     width: 10px;
     height: 10px;
@@ -212,6 +231,8 @@ ul.feature-list p {
 
 /* css feature end */
 
+/* css requirment start */
+
 .requirements {
     background-image: radial-gradient(33.26% 45% at 64.32% 47.1%, rgba(255, 255, 255, 0) 3.36%, rgba(0, 0, 0, 0) 19.22%, #080A0B 99.74%), url("/asset/img/requirements.png");
     background-size: cover;
@@ -239,8 +260,9 @@ td {
     padding: 15px;
 }
 
+/* css requirement */
 
-
+/* /css scores start */
 .scores {
     background-image: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%), url("/asset/img/bg_topscores.jpg");
 
@@ -250,10 +272,68 @@ td {
     height: 100vh;
 }
 
+.quotes {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding-top: 5px;
+}
 
+.top-scores.btn {
+    height: 60px;
+    width: 260px;
+    padding-top: 15px;
+}
+
+.circle {
+    height: 65px;
+    width: 65px;
+    margin-left: 20px;
+    z-index: 1;
+    background-color: #bbb;
+    border-radius: 50%;
+
+}
+
+/* css scores end */
 
 footer {
     background-color: #080A0B;
     background-size: 100% auto;
     height: 959.87px;
+}
+
+.skull {
+
+    height: 684px;
+    width: 445px;
+    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(/asset/img/skull.png);
+    background-size: contain;
+}
+
+.form-control.footer {
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    color: #FFB548;
+    margin-top: -10px;
+}
+
+.input-email {
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    width: 366px;
+}
+
+.btn-email {
+    height: 100%;
+    width: 260px;
+}
+
+.form-control:focus {
+    box-shadow: none;
 }
