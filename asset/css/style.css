@@ -256,7 +256,8 @@ ul.feature-list p {
     background-size: cover;
     background-position: right;
     height: 100vh;
-    height: 960.16px;
+
+
 }
 
 table,
@@ -266,16 +267,16 @@ th {
 }
 
 table {
-    margin-top: 120px;
-    height: 400px;
-    width: 573.2px;
+    margin-top: 10rem;
+    height: 33.33rem;
+    width: 47.75rem;
     table-layout: fixed;
     align-items: top;
 }
 
 td {
     vertical-align: top;
-    padding: 15px;
+    padding: 1.25rem;
 }
 
 /* css requirement */
@@ -287,7 +288,9 @@ td {
     /* background: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%); */
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    height: 110vh;
+
+
 }
 
 .quotes {
@@ -297,19 +300,13 @@ td {
 }
 
 .top-scores.btn {
-    height: 60px;
-    width: 260px;
-    padding-top: 15px;
+    height: 5rem;
+    width: 21.66rem;
+    padding-top: 1.25rem;
 }
 
-.circle {
-    height: 65px;
-    width: 65px;
-    margin-left: 20px;
-    z-index: 1;
-    background-color: #bbb;
-    border-radius: 50%;
-
+.rounded-circle {
+    width: 5.416rem;
 }
 
 /* css scores end */
@@ -359,10 +356,23 @@ footer {
 
 
 /* media query */
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 630px) {
     html {
-        font-size: 7px;
+        font-size: 8px;
     }
 
+    .container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+
+}
+
+@media only screen and (max-width: 400px) {
+    table {
+        height: 28.33rem;
+        width: 42.75rem;
+    }
 
 }
