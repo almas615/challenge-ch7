@@ -21,6 +21,18 @@
     color: #1A1917;
 }
 
+.text-footer {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 .text-1 {
     font-family: Arial;
     font-style: normal;
@@ -299,7 +311,7 @@ td {
 footer {
     background-color: #080A0B;
     background-size: 100% auto;
-    height: 959.87px;
+
 }
 
 .skull {
