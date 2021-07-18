@@ -154,7 +154,7 @@ a.navbar-brand {
 /* css main start */
 .jumbotron {
 
-    background-image: radial-gradient(189.96% 61.18% at 50% 38.82%, rgba(255, 181, 72, 0) 0%, rgba(52, 44, 29, 0.80319) 73.22%, #08090A 99.74%), url("/asset/img/main-bg.jpg");
+    background-image: radial-gradient(189.96% 61.18% at 50% 38.82%, rgba(255, 181, 72, 0) 0%, rgba(52, 44, 29, 0.80319) 73.22%, #08090A 99.74%), url("../img/main-bg.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -180,7 +180,7 @@ a.main.btn {
 /* css galeri start */
 
 .gallery {
-    background-image: radial-gradient(136.03% 54.57% at 50% 48.04%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 60.63%, #080A0B 99.74%), url("/asset/img/the-games-bg.jpg");
+    background-image: radial-gradient(136.03% 54.57% at 50% 48.04%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 60.63%, #080A0B 99.74%), url("../img/the-games-bg.jpg");
     background-size: cover;
     background-position: left;
     height: 100vh;
@@ -208,18 +208,18 @@ a.main.btn {
 }
 
 .carousel-control-prev-icon {
-    background-image: url(/asset/img/prev.svg);
+    background-image: url(../img/prev.svg);
 }
 
 .carousel-control-next-icon {
-    background-image: url(/asset/img/next.svg);
+    background-image: url(../img/next.svg);
 }
 
 /* css galeri end */
 
 /* css feature start */
 .feature {
-    background-image: radial-gradient(51.1% 80.48% at 30.85% 53.65%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 19.2%, rgba(4, 5, 6, 0.520671) 47.48%, #080A0B 99.74%), url("/asset/img/features.jpg");
+    background-image: radial-gradient(51.1% 80.48% at 30.85% 53.65%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 19.2%, rgba(4, 5, 6, 0.520671) 47.48%, #080A0B 99.74%), url("../img/features.jpg");
     background-size: cover;
     background-position: right;
     height: 120vh;
@@ -233,14 +233,14 @@ ul.feature-list {
 
 
 ul.feature-list li {
-    list-style: url("/asset/img/Ellipse.svg");
+    list-style: url("../img/Ellipse.svg");
     padding-left: 1.66rem;
     margin-top: 3rem;
     margin-bottom: 1.416rem;
 }
 
 ul.feature-list li.active {
-    list-style: url("/asset/img/Ellipse-fill.svg");
+    list-style: url("../img/Ellipse-fill.svg");
 }
 
 
@@ -257,7 +257,7 @@ ul.feature-list p {
 /* css requirment start */
 
 .requirements {
-    background-image: radial-gradient(33.26% 45% at 64.32% 47.1%, rgba(255, 255, 255, 0) 3.36%, rgba(0, 0, 0, 0) 19.22%, #080A0B 99.74%), url("/asset/img/requirements.png");
+    background-image: radial-gradient(33.26% 45% at 64.32% 47.1%, rgba(255, 255, 255, 0) 3.36%, rgba(0, 0, 0, 0) 19.22%, #080A0B 99.74%), url("../img/requirements.png");
     background-size: cover;
     background-position: right;
     height: 100vh;
@@ -288,7 +288,7 @@ td {
 
 /* /css scores start */
 .scores {
-    background-image: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%), url("/asset/img/bg_topscores.jpg");
+    background-image: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%), url("../img/bg_topscores.jpg");
 
     /* background: radial-gradient(70.52% 37.27% at 24.21% 47.47%, rgba(35, 15, 15, 0) 0%, rgba(0, 0, 0, 0) 51.1%, #080A0B 99.74%); */
     background-size: cover;
@@ -332,7 +332,7 @@ footer {
 
     height: fit-content;
 
-    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(/asset/img/skull.png);
+    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(../img/skull.png);
     background-size: contain;
     background-size: center center;
 }
@@ -358,7 +358,7 @@ footer {
 .skull {
     width: 26.822vw;
     height: 42.6432vw;
-    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(/asset/img/skull.png);
+    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(../img/skull.png);
     background-size: contain;
 
 
