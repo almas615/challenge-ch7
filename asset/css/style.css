@@ -197,8 +197,9 @@ a.main.btn {
 .carousel-control-prev {
     margin-top: auto;
     margin-bottom: auto;
-
-    width: 5%;
+    margin-left: -2.5rem;
+    margin-right: -2.5rem;
+    width: 30px;
     height: 32px;
 }
 
@@ -311,21 +312,28 @@ td {
 
 /* css scores end */
 
-footer {
+.footer {
     background-color: #080A0B;
     background-size: 100% auto;
     height: 100vh;
 }
 
-.skull {
-
-    height: 684px;
-    width: 445px;
-    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(/asset/img/skull.png);
-    background-size: contain;
+footer {
+    background-color: #080A0B;
+    background-size: 100% auto;
+    height: 20vh;
 }
 
-.form-control.footer {
+.skull {
+
+    height: fit-content;
+
+    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(/asset/img/skull.png);
+    background-size: contain;
+    background-size: center center;
+}
+
+.form-control.form-footer {
     background-color: rgb(0, 0, 0, 0);
     border: none;
     font-family: "Open Sans";
@@ -338,15 +346,20 @@ footer {
     margin-top: -10px;
 }
 
+.img-footer {
+    width: 26.822vw;
+    height: 42.6432vw;
+}
+
 .input-email {
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.08);
-    width: 366px;
+
 }
 
 .btn-email {
     height: 100%;
-    width: 260px;
+    width: 100%;
 }
 
 .form-control:focus {
@@ -358,7 +371,7 @@ footer {
 /* media query */
 @media only screen and (max-width: 630px) {
     html {
-        font-size: 8px;
+        font-size: 7.5px;
     }
 
     .container {
@@ -366,6 +379,9 @@ footer {
         margin-right: 20px;
     }
 
+    .text-6 {
+        font-size: 4.5rem;
+    }
 
 }
 
