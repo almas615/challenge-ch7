@@ -350,9 +350,18 @@ footer {
     margin-top: -10px;
 }
 
-.img-footer {
+/* .img-footer {
     width: 26.822vw;
     height: 42.6432vw;
+} */
+
+.skull {
+    width: 26.822vw;
+    height: 42.6432vw;
+    background-image: radial-gradient(45.43% 53.19% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 46.15%, #080A0B 99.74%), url(/asset/img/skull.png);
+    background-size: contain;
+
+
 }
 
 .input-email {
