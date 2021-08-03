@@ -1,0 +1,89 @@
+html {
+    font-size: 1px;
+    font-family: "Open Sans";
+}
+
+body {
+    background-color: #9C835F;
+}
+
+.text-1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16rem;
+    line-height: 29rem;
+    text-align: start;
+
+    color: #F9B23D;
+}
+
+.text-2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16rem;
+    line-height: 29rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+
+.text-vs {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64rem;
+    line-height: 116rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #BD0000;
+}
+
+.item-content {
+
+    height: fit-content;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.item-rock {
+    height: 62rem;
+    width: 88rem;
+}
+
+.item-paper {
+    height: 110rem;
+    width: 85rem;
+}
+
+.item-scissors {
+    height: 120rem;
+    width: 85rem;
+}
+
+#item-refres {
+    width: 47rem;
+    height: 41rem;
+}
+
+.test {
+    border: 1px solid black;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 1.25px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 1.3px;
+    }
+}
