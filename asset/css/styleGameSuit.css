@@ -29,6 +29,19 @@ body {
     color: #000000;
 }
 
+.text-3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18rem;
+    line-height: 32rem;
+    text-align: center;
+    align-items: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
 .text-vs {
     font-style: normal;
     font-weight: bold;
@@ -76,6 +89,17 @@ body {
     border: 1px solid black;
 }
 
+.box-hasil {
+    transform: rotate(-28.87deg);
+    border-radius: 10px;
+    background: #4C9654;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 1.25px;
@@ -85,5 +109,9 @@ body {
 @media (min-width: 1200px) {
     html {
         font-size: 1.3px;
+    }
+
+    .box-hasil {
+        width: 70%;
     }
 }
