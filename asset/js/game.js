@@ -1,6 +1,6 @@
 // pilihan com
-
-function reset() {
+class game{
+reset() {
     tampilanVS.style.removeProperty("display");
     boxHasil.style.display = "none";
     playerItems.forEach(function(item) {
@@ -11,13 +11,14 @@ function reset() {
     });
 }
 
-function acakComp() {
+acakComp() {
     let i = 0
     
     let acak = setInterval(function () {
         compItems.forEach(function(item,index){
             (i==index)? item.style.backgroundColor = "#C4C4C4" : item.style.removeProperty("background-color");
         });
+        
         i++;
         if ( i == compItems.length) return i = 0 ;
         
@@ -27,21 +28,21 @@ function acakComp() {
     },1000)
 }
 
-function PilihanCom() {
-    const comp = Math.floor(Math.random() * 11);
+PilihanCom() {
+    const comp = Math.floor(Math.random() * 101);
     if(comp <= 3) return 0; /* batu */
     if(comp > 3 && comp <= 6) return 1; /* kertas */
     return 2; /* gunting */
 }
 
-function rule(player,comp) {
+rule(player,comp) {
     if(player == comp) return "seri";
     if(player == 0) return (comp == 1)? "kalah" : "menang" ;
     if(player == 1) return (comp == 0)? "menang" : "kalah" ;
     if(player == 2) return (comp == 1)? "menang" : "kalah" ;
 }
 
-function ubahBgItems(itemBg, i) {
+ubahBgItems(itemBg, i) {
     itemBg.forEach(function (bgItem,bgI) {
         if (i == bgI) {
             bgItem.style.backgroundColor = "#C4C4C4";
@@ -51,7 +52,7 @@ function ubahBgItems(itemBg, i) {
     });
 }
 
-function ubahStatus(hasil) {
+ubahStatus(hasil) {
     if (hasil=="menang") {
         tampilanVS.style.display="none";
         boxHasil.style.removeProperty("display");
@@ -74,6 +75,15 @@ function ubahStatus(hasil) {
     }
 }
 
+printLog(pilihan) {
+    if (pilihan == 0) return "batu";
+    if (pilihan == 1) return "kertas";
+    if (pilihan == 2) return "gunting";
+
+}
+
+}
+
 
 const tampilanVS = document.getElementById("vs");
 const boxHasil = document.getElementById("boxHasil");
@@ -81,19 +91,22 @@ const playerName = document.getElementById("playerName");
 
 var playerItems = document.querySelectorAll(".item-content.player");
 var compItems = document.querySelectorAll(".item-content.comp");  
-reset();
 
-
+const game1 = new game();
+game1.reset();
 playerItems.forEach(function(item,i) {
     item.addEventListener("click", function() {
-        ubahBgItems(playerItems,i);
-        acakComp();
+        game1.ubahBgItems(playerItems,i);
+        game1.acakComp();
         setTimeout(function() {
-            const comp = PilihanCom();
-            ubahBgItems(compItems,comp)
+            const comp = game1.PilihanCom();
+            game1.ubahBgItems(compItems,comp)
             const player = i;
-            const hasil = rule(player,comp);
-            ubahStatus(hasil);
+            const hasil = game1.rule(player,comp);
+            game1.ubahStatus(hasil);
+            console.log('hasil : \n pilihan player adalah ' + game1.printLog(player) + '\n pilihan computer adalah ' + game1.printLog(comp) + '\n hasil pertandingan adalah player ' + hasil
+            );
+            
         },1000);
     });
 });
