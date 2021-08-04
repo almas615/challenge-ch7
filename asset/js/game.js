@@ -29,7 +29,7 @@ acakComp() {
 }
 
 PilihanCom() {
-    const comp = Math.floor(Math.random() * 101);
+    const comp = Math.floor(Math.random() * 11);
     if(comp <= 3) return 0; /* batu */
     if(comp > 3 && comp <= 6) return 1; /* kertas */
     return 2; /* gunting */
