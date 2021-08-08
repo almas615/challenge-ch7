@@ -1,5 +1,5 @@
 // pilihan com
-class game{
+class Game{
 reset() {
     tampilanVS.style.removeProperty("display");
     boxHasil.style.display = "none";
@@ -28,7 +28,7 @@ acakComp() {
     },1000)
 }
 
-PilihanCom() {
+pilihanCom() {
     const comp = Math.floor(Math.random() * 11);
     if(comp <= 3) return 0; /* batu */
     if(comp > 3 && comp <= 6) return 1; /* kertas */
@@ -92,14 +92,14 @@ const playerName = document.getElementById("playerName");
 var playerItems = document.querySelectorAll(".item-content.player");
 var compItems = document.querySelectorAll(".item-content.comp");  
 
-const game1 = new game();
+const game1 = new Game();
 game1.reset();
 playerItems.forEach(function(item,i) {
     item.addEventListener("click", function() {
         game1.ubahBgItems(playerItems,i);
         game1.acakComp();
         setTimeout(function() {
-            const comp = game1.PilihanCom();
+            const comp = game1.pilihanCom();
             game1.ubahBgItems(compItems,comp)
             const player = i;
             const hasil = game1.rule(player,comp);
