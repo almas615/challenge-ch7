@@ -45,6 +45,7 @@ app.get('/game',(req, res)=>{
 app.post('/login', (req, res) => {
     const sess = req.session;
     let get = [];
+    // cari apakah email dan password sesuai dengan yang ada pada users
     get =users.find((item) => {
         if (item.email == req.body.email && item.password == req.body.password) {
             return item;
@@ -73,13 +74,14 @@ app.post('/register',(req, res)=>{
         password : req.body.password
     }
     let get =[];
+    // validasi jika email sudah terdaftar
     get = users.find((item) => {
         if (item.email == req.body.email) {
             return item;
         }
     });
 
-    if (get == undefined) {
+    if (get == undefined) {// jika email belum terdaftar maka simpan
         // const dataFileUser = fs.readFileSync('db/user.json', 'utf8'); // ambilsemua data pada json
         // const dataUsers = JSON.parse(dataFileUser); //masukan data pada file json ke dalam objec users
         
@@ -88,7 +90,7 @@ app.post('/register',(req, res)=>{
         fs.writeFileSync('db/user.json', JSON.stringify(users)); // timpa data file json dengan data baru
         
         res.redirect('/');
-    }else{
+    }else{ // jika email sudah terdaftar maka kembalikan ke halaman register
         res.redirect('/register');
     }
     
