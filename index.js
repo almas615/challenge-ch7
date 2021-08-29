@@ -3,9 +3,7 @@ const app = express();
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const sessions = require('express-session');
-
 const port = 3000;
- 
 let users = require('./db/user.json');
 
 
@@ -25,7 +23,7 @@ app.get('/',(req, res)=>{
         judul : "home",
         email: req.session.email
     }
-    res.render('index',data,console.log(req.session.email));
+    res.render('index',data,console.log(req.session));
 });
 
 // get all users
@@ -62,7 +60,10 @@ app.post('/login', (req, res) => {
 
 // login halaman
 app.get('/login',(req, res)=>{
-    res.render('login');
+    data = {
+        judul : "halaman login"
+    }
+    res.render('login',data);
 });
 
 
@@ -99,7 +100,10 @@ app.post('/register',(req, res)=>{
 
 // halamat register
 app.get('/register',(req, res)=>{
-    res.render('register');
+    data = {
+        judul : "halaman register"
+    }
+    res.render('register',data);
 })
 
 // proses logout
