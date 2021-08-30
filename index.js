@@ -92,6 +92,7 @@ app.post('/register',(req, res)=>{
         
         res.redirect('/');
     }else{ // jika email sudah terdaftar maka kembalikan ke halaman register
+        console.log('email sudah terdaftar')
         res.redirect('/register');
     }
     
