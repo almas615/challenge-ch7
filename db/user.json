@@ -1,1 +1,1 @@
-[{"nama":"almas","email":"almas689@gmail.com","password":"123"},{"nama":"wafi","email":"wafi@gmail.com","password":"123"},{"nama":"lauza","email":"lauza@gmail.com","password":"123"},{"nama":"hazza","email":"hazza@gmail.com","password":"123"}]
+[{"nama":"almas","email":"almas689@gmail.com","password":"123","hak_akses":"user"},{"nama":"almas","email":"almas123@gmail.com","password":"123","hak_akses":"superuser"}]
