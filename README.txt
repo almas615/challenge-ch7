@@ -7,3 +7,4 @@ cara penggunaan dashboard:
 2. untuk mengedit data , klik pada baris data yang ingin diubah kemudian ubah datanya pada form.
 3. untuk menghapus data, klik pada baris data yang ingin dihapus kemudian pada form klik tombol hapus
 
+semua crud pada dashboard tidak bisa di akses sebelum  login super user
