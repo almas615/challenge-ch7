@@ -25,6 +25,7 @@ app.use(sessions({
 }));
 
 
+
 // routing halaman home
 app.get('/', (req, res) => {
     data = {
@@ -46,7 +47,7 @@ app.get('/game', (req, res) => {
 
 // login proses
 app.post('/login', (req, res) => {
-    const sess = req.session;
+    let sess = req.session;
     let get = [];
     // cari apakah email dan password sesuai dengan yang ada pada users
     get = users.find((item) => {
@@ -57,7 +58,8 @@ app.post('/login', (req, res) => {
     if (get == undefined) {
         res.redirect('/login');
     } else {
-        sess.email = req.body.email;
+        sess.email = get.email;
+        sess.hak_akses = get.hak_akses;
         if (get.hak_akses == "superuser") {
             res.redirect('/dashboard')
         } else {
@@ -126,124 +128,152 @@ app.get('/logout', (req, res) => {
 //dashboard
 
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard')
+    let sess = req.session;
+    if (sess.email !== undefined && sess.hak_akses == "superuser") {
+        User_game.findAll({
+                include: {
+                    model: User_game_biodata,
+                    as: 'biodata'
+                }
+            })
+            .then(users => {
+                // res.render('dashboard/users', {
+                //     users
+                // })
+                res.render('dashboard', {
+                    users
+                })
+            })
+    } else {
+        res.redirect('/notFoundPage')
+    }
 })
 
 // find all users
 app.get('/users', (req, res) => {
-    User_game.findAll()
-        .then(users => {
-            // res.render('dashboard/users', {
-            //     users
-            // })
-            res.json(users)
-        })
+    let sess = req.session;
+    if (sess.email !== undefined && sess.hak_akses == "superuser") {
+        User_game.findAll()
+            .then(users => {
+                // res.render('dashboard/users', {
+                //     users
+                // })
+                res.json(users)
+            })
+    } else {
+        res.render('erorPage/notFound')
+    }
 })
 // find one detail user
 app.get('/user/detail/:id', (req, res) => {
-    User_game.findOne({
-            where: {
-                id: req.params.id
-            },
-            include: {
-                model: User_game_biodata,
-                as: 'biodata'
-            }
-        })
-        .then(user => {
-            // res.render('dashboard/detail', {
-            //     user
-            // })
-            res.json(user)
-        })
+    let sess = req.session;
+    if (sess.email !== undefined && sess.hak_akses == "superuser") {
+        User_game.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: {
+                    model: User_game_biodata,
+                    as: 'biodata'
+                }
+            })
+            .then(user => {
+                // res.render('dashboard/detail', {
+                //     user
+                // })
+                res.json(user)
+            })
+    } else {
+        res.redirect('/notFoundPage')
+    }
 })
 // create user
 app.post('/user/create', (req, res) => {
-    User_game.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        })
-        .then(() => {
-            User_game.findOne({
-                    attributes: ['id'],
-                    order: [
-                        ['id', 'DESC']
-                    ]
-                })
-                .then(user => {
+    let sess = req.session;
+    if (sess.email !== undefined && sess.hak_akses == "superuser") {
+        User_game.create({
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password
+            })
+            .then(() => {
+                User_game.findOne({
+                        attributes: ['id'],
+                        order: [
+                            ['id', 'DESC']
+                        ]
+                    })
+                    .then(user => {
 
-                    User_game_biodata.create({
-                            user_id: user.id,
-                            nama: req.body.nama
-                        })
-                        .then(() => {
-                            // res.redirect('/users')
-                            res.send(user);
-                        })
-                })
-        })
-})
+                        User_game_biodata.create({
+                                user_id: user.id,
+                                nama: req.body.nama
+                            })
+                            .then(() => {
+                                res.redirect('/dashboard')
 
-app.get('/user/update/:id', (req, res) => {
-    User_game.findOne({
-            where: {
-                id: req.params.id
-            },
-            include: {
-                model: User_game_biodata,
-                as: 'biodata'
-            }
-        })
-        .then(user => {
-            // res.render('dashboard/update', {
-            //     user
-            // })
-            res.json(user)
-        })
+                            })
+                    })
+            })
+    } else {
+        res.redirect('/notFoundPage')
+    }
 })
 
 app.post('/user/update/:id', (req, res) => {
-    User_game.update({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        }, {
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(() => {
-            User_game_biodata.update({
-                    nama: req.body.nama
-                }, {
-                    where: {
-                        user_id: req.params.id
-                    }
-                })
-                .then(() => {
-                    res.redirect('/user/detail/' + req.params.id)
-                })
-        })
+    let sess = req.session;
+    if (sess.email !== undefined && sess.hak_akses == "superuser") {
+        User_game.update({
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => {
+                User_game_biodata.update({
+                        nama: req.body.nama
+                    }, {
+                        where: {
+                            user_id: req.params.id
+                        }
+                    })
+                    .then(() => {
+                        res.redirect('/dashboard')
+                    })
+            })
+    } else {
+        res.redirect('/notFoundPage')
+    }
 })
 
 app.get('/user/delete/:id', (req, res) => {
+    let sess = req.session;
+    if (sess.email !== undefined && sess.hak_akses == "superuser") {
+        User_game_biodata.destroy({
+                where: {
+                    user_id: req.params.id
+                }
+            })
+            .then(() => {
+                User_game.destroy({
+                        where: {
+                            id: req.params.id
+                        }
+                    })
+                    .then(() => {
+                        res.redirect('/dashboard')
+                    })
+            })
+    } else {
+        res.redirect('/notFoundPage')
+    }
+})
 
-    User_game_biodata.destroy({
-            where: {
-                user_id: req.params.id
-            }
-        })
-        .then(() => {
-            User_game.destroy({
-                    where: {
-                        id: req.params.id
-                    }
-                })
-                .then(() => {
-                    res.redirect('/users')
-                })
-        })
+app.get('/notFoundPage', (req, res) => {
+    res.render('erorPage/notFound')
 })
 
 app.listen(port, () => {
