@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= judul %> </title>
+    <title>register </title>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-    <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../asset/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #bdb8ad;
@@ -27,11 +27,11 @@
 <body>
     <div class="container d-flex justify-content-center align-items-center">
         <div class="card p-5">
-            <form action="/register" method="POST">
+            <form action="/auth/register" method="POST">
                 <h2 class="text-center mb-3">REGISTRASI</h2>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Nama</label>
-                    <input type="text" class="form-control" name="nama" id="nama" aria-describedby="namaHelp">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" aria-describedby="namaHelp">
 
                 </div>
                 <div class="mb-3">

@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const sessions = require('express-session');
+const session = require('express-session');
+const flash = require('express-flash');
 const port = process.env.PORT || 8000;
 
 
@@ -11,7 +12,14 @@ const {
     User_game_biodata,
     User_game_history
 } = require('./models')
-
+app.use(session({
+    secret: 'Buat ini jadi rahasia',
+    resave: false,
+    saveUninitialized: false
+}))
+const passport = require('passport');
+app.use(passport.initialize());
+app.use(flash());
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.static('public'));
