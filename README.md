@@ -21,6 +21,6 @@
  * `GET '/users/delete/:id'` untuk mengakses proses hapus user
  * `GET '/users/update/:id'` untuk mengakses proses ubah User
 
- ## GAME UPDATE
+ ## GAME
  * `GET '/games'` untuk mengakses halaman game
 
