@@ -3,16 +3,20 @@ const {
     User_game_biodata,
     User_game_history
 } = require('../models')
-const passport = require('passport')
+const passport = require('../lib/passport')
 
 function format(user) {
     const {
         id,
-        username
+        username,
+        email,
+        hak_akses
     } = user
     return {
         id,
         username,
+        email,
+        hak_akses,
         accessToken: user.generateToken()
     }
 }
@@ -41,9 +45,18 @@ const postRegister = (req, res, next) => {
         })
         .catch(err => next(err))
 }
+
+const whoami = (req, res) => {
+    const currentUser = req.user;
+    res.json(currentUser)
+}
+
+
 module.exports = {
     getLogin,
     getRegister,
     postRegister,
-    postLogin
+    postLogin,
+    whoami,
+
 }

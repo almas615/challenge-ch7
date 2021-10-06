@@ -16,15 +16,23 @@ function tableText(tableRow) {
     let name = tableRow.cells[2].innerHTML;
     let username = tableRow.cells[3].innerHTML;
     let email = tableRow.cells[4].innerHTML;
-    let password = tableRow.cells[5].innerHTML;
+
     let id = tableRow.cells[1].innerHTML;
     document.getElementById("nama").value = name;
     document.getElementById("username").value = username;
     document.getElementById("email").value = email;
-    document.getElementById("password").value = password;
-    document.querySelector("#btnHapus a").href = "/user/delete/" + id;
-    document.getElementById("form").action = "/user/update/" + id;
 
+    document.querySelector("#btnHapus a").href = "/users/delete/" + id;
+    document.getElementById("form").action = "/users/update/" + id;
+    togleInput(false);
+
+}
+
+function togleInput(val) {
+    let input = document.getElementsByTagName("input");
+    for (var i = 0; i < input.length; i++) {
+        input[i].disabled = val;
+    }
 }
 
 function resetForm() {
@@ -37,13 +45,16 @@ function resetForm() {
     document.getElementById("btnSimpan").disabled = true;
     document.getElementById("btnHapus").disabled = true;
     document.getElementById("btnCancel").disabled = true;
+    togleInput(true);
+
 }
 
 function setFormTambah() {
     resetForm();
     document.getElementById("judulForm").innerHTML = "Silahkan Tambah Data";
-    document.getElementById("form").action = "/user/create";
+    document.getElementById("form").action = "/users";
     document.getElementById("btnSimpan").disabled = false;
     document.getElementById("btnHapus").disabled = true;
     document.getElementById("btnCancel").disabled = false;
+    togleInput(false);
 }

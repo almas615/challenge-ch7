@@ -51,7 +51,9 @@ module.exports = (sequelize, DataTypes) => {
       // Jangan memasukkan password ke dalam payload
       const payload = {
         id: this.id,
-        username: this.username
+        username: this.username,
+        email: this.email,
+        hak_akses: this.hak_akses
       }
       // Rahasia ini nantinya kita pakai untuk memverifikasi apakah token ini benar-benar berasal dari aplikasi kita
       const rahasia = 'Ini rahasia ga boleh disebar-sebar'

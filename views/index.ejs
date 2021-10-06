@@ -12,7 +12,7 @@
     <link href="asset/css/style.css" rel="stylesheet">
 
 
-    <title><%= judul %> </title>
+    <title>game suit </title>
     <style>
 
     </style>
@@ -44,19 +44,11 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <% 
-                        if (email == undefined) {
-                            beforeLogin= "";
-                            afterLogin="hidden";
-                        }else{
-                            beforeLogin ="hidden"
-                            afterLogin=""
-                        }    
-                    %>
-                    <a class="nav-link" <%= afterLogin %>><%= email %></a>
-                    <a class="nav-link " aria-current="page" href="/logout" <%= afterLogin %>>LOGOUT</a>
-                    <a class="nav-link " aria-current="page" href="/register" <%= beforeLogin %>>SIGN UP</a>
-                    <a class="nav-link " aria-current="page" href="/login" <%= beforeLogin %>>LOGIN</a>
+
+                    <a class="nav-link"></a>
+                    <a class="nav-link " aria-current="page" href="/auth/logout">LOGOUT</a>
+                    <a class="nav-link " aria-current="page" href="/auth/register">SIGN UP</a>
+                    <a class="nav-link " aria-current="page" href="/auth/login">LOGIN</a>
                     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button> -->
                 </div>

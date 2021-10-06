@@ -1,5 +1,5 @@
-<%- include("dashboard/partials/header") %>
-<%- include("dashboard/partials/navbar") %>
+<%- include("./partials/header") %>
+<%- include("./partials/navbar") %>
 <div class="content">
     <div class="container">
         <div class="row mt-5">
@@ -17,7 +17,7 @@
                             <th scope="col">nama</th>
                             <th scope="col">username</th>
                             <th scope="col">email</th>
-                            <th scope="col">password</th>
+
 
                         </tr>
                     </thead>
@@ -32,7 +32,7 @@
                             <td> <%= user.biodata.nama %> </td>
                             <td><%= user.username %></td>
                             <td><%= user.email %></td>
-                            <td><%= user.password %></td>
+
 
                         </tr>
                         <%     
@@ -79,4 +79,4 @@
 
     </div>
 </div>
-<%- include("dashboard/partials/footer") %>
+<%- include("./partials/footer") %>
