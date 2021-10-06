@@ -21,6 +21,7 @@ function format(user) {
     }
 }
 
+
 const getLogin = (req, res) => {
     res.render('auth/login')
 }
@@ -32,9 +33,13 @@ const getRegister = (req, res) => {
 const postLogin = (req, res) => {
     User_game.authenticate(req.body)
         .then(user => {
-            res.json(
-                format(user)
-            )
+            console.log(format(user))
+            if (user.hak_akses == "super_user") {
+                res.redirect('/users')
+            } else {
+                res.redirect('/game')
+            }
+
         })
 }
 

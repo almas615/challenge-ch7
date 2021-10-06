@@ -8,6 +8,6 @@ router.get("/", (req, res) => {
 })
 router.use("/auth", auth);
 router.use("/users", user);
-router.user("/game", game);
+router.use("/game", game);
 
 module.exports = router;

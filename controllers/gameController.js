@@ -4,6 +4,7 @@ const {
     User_game_history
 } = require('../models')
 
+
 const getGamePage = (req, res) => {
     res.render('gameSuit')
 }
