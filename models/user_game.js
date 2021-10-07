@@ -17,12 +17,20 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.hasOne(models.User_game_biodata, {
         foreignKey: 'user_id',
+        sourceKey: 'id',
         as: 'biodata',
         onDelete: 'cascade'
       });
 
+      this.hasMany(models.Detail_room, {
+        foreignKey: 'id_user',
+        sourceKey: 'id',
+        as: 'detail'
+      });
+
       this.hasMany(models.User_game_history, {
-        foreignKey: 'user_id'
+        foreignKey: 'user_id',
+        sourceKey: 'id',
       })
     }
     static encrypt = (password) => bcrypt.hashSync(password, 10)
