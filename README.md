@@ -7,6 +7,12 @@
 * api creat room : belum
 * api figh : belum
 
+# ALUR LOGIN
+*   user memasukkan username password
+*   jika berhasil sistem mengecek hak akses user yang login 
+*   jika hak akses user adalah superuser maka akan di redirect ke dashboard
+*   jika hak akses user adlah user plauer maka akan di redirect ke game suit
+
 # DAFTAR API
 ## HOME
  * `GET '/'` untuk mengakses halaman homepage
