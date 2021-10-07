@@ -14,12 +14,12 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Room, {
         foreignKey: 'id_room',
         sourceKey: 'id',
-        as: 'detail'
+        as: 'detail_room'
       });
       this.belongsTo(models.User_game, {
         foreignKey: 'id_user',
         sourceKey: 'id',
-        as: 'detail'
+        as: 'detail_user'
       });
     }
   };
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     id_room: DataTypes.INTEGER,
     id_user: DataTypes.INTEGER,
     jenis_player: DataTypes.STRING,
-    pilihan_player: DataTypes.ARRAY(TEXT)
+    pilihan_player: DataTypes.ARRAY(DataTypes.TEXT)
   }, {
     sequelize,
     modelName: 'Detail_room',

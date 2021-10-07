@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Detail_room, {
         foreignKey: 'id_user',
         sourceKey: 'id',
-        as: 'detail'
+        as: 'detail_user'
       });
 
       this.hasMany(models.User_game_history, {
