@@ -4,7 +4,7 @@
 * crud user MVC : sudah
 * batasan akses untuk userplayer dan superuser : belum
 * logout : belum
-* api creat room : belum
+* api creat room : sudah
 * api figh : belum
 
 # ALUR LOGIN
