@@ -1,11 +1,11 @@
 # GOAL
-* login (pakai jwt) : sudah 
-* register: sudah
-* crud user MVC : sudah
-* batasan akses untuk userplayer dan superuser : belum
-* logout : belum
-* api creat room : belum
-* api figh : belum
+* login (pakai jwt) : `sudah` 
+* register: `sudah`
+* crud user MVC : `sudah`
+* api creat room : `sudah`
+* api figh : `sudah`
+* fungsi hitung hasil pilihan player : `belum`
+* batasan akses route untuk userplayer dan superuser : `belum`
 
 # ALUR LOGIN
 *   user memasukkan username password
