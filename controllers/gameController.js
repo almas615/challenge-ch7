@@ -128,8 +128,9 @@ const insertPilihanPlayer1 = (pilihan, idRoom) => {
                         jenis_player: 'player1'
                     }
                 })
-                .then(() => {
-                    resolve("player 1 berhasil input pilihan")
+                .then(async () => {
+                    let hasil = await hitungHasil(idRoom) // mengitung hasil jika game sudah selesai
+                    resolve("player 1 berhasil input pilihan (" + hasil + ")")
                 })
 
         } else {
@@ -149,8 +150,9 @@ const insertPilihanPlayer2 = (idUser, pilihan, idRoom) => {
                         jenis_player: 'player2'
                     }
                 })
-                .then(() => {
-                    resolve("player 2 berhasil input pilihan")
+                .then(async () => {
+                    let hasil = await hitungHasil(idRoom) // mengitung hasil jika game sudah selesai
+                    resolve("player 2 berhasil input pilihan (" + hasil + ")")
                 })
 
         } else {
@@ -166,58 +168,108 @@ const rule = (player1, player2) => {
     if (player1 == "gunting") return (player2 == "kertas") ? "player1" : "player2";
 }
 
-const hitungHasil = async (idRoom) => {
+const hitungHasil = (idRoom) => {
+    return new Promise(async (resolve, reject) => {
+        let fightEnd = await isFightEnd(idRoom)
+        if (!fightEnd) return resolve("sedang menunggu lawan memilih");
+        let player1,
+            player2,
+            hasilTemp = [];
+        await Detail_room.findOne({
+                attributes: ['id_user', 'pilihan_player'],
+                where: {
+                    jenis_player: 'player1',
+                    id_room: idRoom
+                }
+            })
+            .then((player) => {
+                player1 = {
+                    id_user: player.id_user,
+                    pilihan_player: player.pilihan_player
+                };
 
-    let player1,
-        player2,
-        hasilTemp = [];
-    await Detail_room.findOne({
-            attributes: ['id_user', 'pilihan_player'],
-            where: {
-                jenis_player: 'player1',
-                id_room: idRoom
-            }
+            })
+        await Detail_room.findOne({
+                attributes: ['id_user', 'pilihan_player'],
+                where: {
+                    jenis_player: 'player2',
+                    id_room: idRoom
+                }
+            })
+            .then((player) => {
+                player2 = {
+                    id_user: player.id_user,
+                    pilihan_player: player.pilihan_player
+                };
+
+            })
+
+        for (let i = 0; i <= 2; i++) {
+            hasilTemp.push(rule(player1.pilihan_player[i], player2.pilihan_player[i]))
+
+        }
+        console.log(hasilTemp)
+        let hasilPlayer1 = 0,
+            hasilPlayer2 = 0;
+        hasilTemp.forEach((hasil) => {
+            if (hasil == "player1") return hasilPlayer1++;
+            if (hasil == "player2") return hasilPlayer2++;
         })
-        .then((player) => {
-            player1 = {
-                id_user: player.id_user,
-                pilihan_player: player.pilihan_player
-            };
+        let data = {
+            player1: player1.id_user,
+            player2: player2.id_user,
+            hasil1: hasilPlayer1,
+            hasil2: hasilPlayer2
+        };
 
-        })
-    await Detail_room.findOne({
-            attributes: ['id_user', 'pilihan_player'],
-            where: {
-                jenis_player: 'player2',
-                id_room: idRoom
-            }
-        })
-        .then((player) => {
-            player2 = {
-                id_user: player.id_user,
-                pilihan_player: player.pilihan_player
-            };
-
+        await insertGameHistory({
+            data
         })
 
-    for (let i = 0; i <= 2; i++) {
-        hasilTemp.push(rule(player1.pilihan_player[i], player2.pilihan_player[i]))
-
-    }
-    console.log(hasilTemp)
-    let hasilPlayer1 = 0,
-        hasilPlayer2 = 0;
-    hasilTemp.forEach((hasil) => {
-        if (hasil == "player1") return hasilPlayer1++;
-        if (hasil == "player2") return hasilPlayer2++;
-    })
-
-    console.log(hasilPlayer1 + " " + hasilPlayer2)
-    return new Promise((resolve, reject) => {
-        resolve(hasilTemp)
+        resolve("game selesai")
     })
 }
 
+const insertGameHistory = async ({
+    data
+}) => {
+    if (data.hasil1 == data.hasil2) {
+        await User_game_history.create({
+            user_id: data.player1,
+            result: "seri"
+        })
+        await User_game_history.create({
+            user_id: data.player2,
+            result: "seri"
+        })
+
+    }
+    if (data.hasil1 > data.hasil2) {
+        await User_game_history.create({
+            user_id: data.player1,
+            result: "menang"
+        })
+        await User_game_history.create({
+            user_id: data.player2,
+            result: "kalah"
+        })
+    }
+
+    if (data.hasil1 < data.hasil2) {
+        await User_game_history.create({
+            user_id: data.player1,
+            result: "kalah"
+        })
+        await User_game_history.create({
+            user_id: data.player2,
+            result: "menang"
+        })
+    }
+
+    return new Promise((resolve, reject) => {
+        resolve('selesai')
+    })
+}
 
 const fight = async (req, res) => {
     // res.send(await hitungHasil(req.params.idRoom))
