@@ -4,7 +4,7 @@
 * crud user MVC : `sudah`
 * api creat room : `sudah`
 * api figh : `sudah`
-* fungsi hitung hasil pilihan player : `belum`
+* fungsi hitung hasil pilihan player : `sudah`
 * batasan akses route untuk userplayer dan superuser : `belum`
 
 
