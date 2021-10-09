@@ -11,6 +11,7 @@ const getGamePage = (req, res) => {
     res.render('gameSuit')
 }
 
+//fungsi untuk mengecek apakah game telah selesai
 const isFightEnd = (idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findAll({
@@ -30,6 +31,7 @@ const isFightEnd = (idRoom) => {
     })
 }
 
+// fungsi untuk mengecek apakah user telah terdata sebagai player1
 const isUserPlayer1 = (idUser, idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -50,6 +52,7 @@ const isUserPlayer1 = (idUser, idRoom) => {
     })
 }
 
+//fungsi untuk mengecek apakah user terlah terdata sebagai player 2
 const isUserPlayer2 = (idUser, idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -70,6 +73,7 @@ const isUserPlayer2 = (idUser, idRoom) => {
     })
 }
 
+//fungsi untuk mengecek apakah slot player 2 belum terisi
 const isPlayer2Empty = (idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -90,6 +94,7 @@ const isPlayer2Empty = (idRoom) => {
     })
 }
 
+//fungsi untuk mengecek apakah jumlah pilihan
 const checkPilihanItem = (pilihan) => {
     return new Promise((resolve, reject) => {
         if (pilihan.length == 3) return resolve(true);
@@ -97,6 +102,7 @@ const checkPilihanItem = (pilihan) => {
     })
 }
 
+// fungsi untuk mengecek apkah pilihan player1 masih kosong
 const isPilihanPlayer1Empty = (idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -117,6 +123,7 @@ const isPilihanPlayer1Empty = (idRoom) => {
     })
 }
 
+// fungsi untuk menginputkan pilihan player1
 const insertPilihanPlayer1 = (pilihan, idRoom) => {
     return new Promise((resolve, reject) => {
         if (pilihan.length == 3) {
@@ -138,6 +145,8 @@ const insertPilihanPlayer1 = (pilihan, idRoom) => {
         }
     })
 }
+
+//fungsi untuk menginputkan pilihan player 2
 const insertPilihanPlayer2 = (idUser, pilihan, idRoom) => {
     return new Promise((resolve, reject) => {
         if (pilihan.length == 3) {
@@ -161,6 +170,7 @@ const insertPilihanPlayer2 = (idUser, pilihan, idRoom) => {
     })
 }
 
+// fungsi aturan game suit
 const rule = (player1, player2) => {
     if (player1 == player2) return "seri";
     if (player1 == "batu") return (player2 == "kertas") ? "player2" : "player1";
@@ -168,6 +178,7 @@ const rule = (player1, player2) => {
     if (player1 == "gunting") return (player2 == "kertas") ? "player1" : "player2";
 }
 
+// fungsi untuk menghitung hasil pemenang game
 const hitungHasil = (idRoom) => {
     return new Promise(async (resolve, reject) => {
         let fightEnd = await isFightEnd(idRoom)
@@ -230,6 +241,7 @@ const hitungHasil = (idRoom) => {
     })
 }
 
+// fungsi untuk memasukkan hasil pemenang game ke tabel history
 const insertGameHistory = async ({
     data
 }) => {
@@ -306,6 +318,7 @@ const createRoom = (req, res) => {
 
 }
 
+//fungsi untuk men generete isi dari table detail room
 const genereteDetailRoom = (idRoom, idUser) => {
     let jenis_player;
     let player;
