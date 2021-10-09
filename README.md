@@ -30,4 +30,6 @@
 
  ## GAME
  * `GET '/games'` untuk mengakses halaman game
+ * `GET '/games/create-room'` untuk membuat room
+ * `GET '/games/fight/:idRoom'` untuk mengakses pertandingan
 
