@@ -205,6 +205,14 @@ const hitungHasil = async (idRoom) => {
 
     }
     console.log(hasilTemp)
+    let hasilPlayer1 = 0,
+        hasilPlayer2 = 0;
+    hasilTemp.forEach((hasil) => {
+        if (hasil == "player1") return hasilPlayer1++;
+        if (hasil == "player2") return hasilPlayer2++;
+    })
+
+    console.log(hasilPlayer1 + " " + hasilPlayer2)
     return new Promise((resolve, reject) => {
         resolve(hasilTemp)
     })
