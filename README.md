@@ -6,6 +6,7 @@
 * api figh : `sudah`
 * fungsi hitung hasil pilihan player : `sudah`
 * batasan akses route untuk userplayer dan superuser : `belum`
+* test
 
 
 # ALUR LOGIN
