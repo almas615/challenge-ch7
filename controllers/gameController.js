@@ -11,6 +11,7 @@ const getGamePage = (req, res) => {
     res.render('gameSuit')
 }
 
+//fungsi untuk mengecek apakah game telah selesai
 const isFightEnd = (idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findAll({
@@ -30,6 +31,7 @@ const isFightEnd = (idRoom) => {
     })
 }
 
+// fungsi untuk mengecek apakah user telah terdata sebagai player1
 const isUserPlayer1 = (idUser, idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -50,6 +52,7 @@ const isUserPlayer1 = (idUser, idRoom) => {
     })
 }
 
+//fungsi untuk mengecek apakah user terlah terdata sebagai player 2
 const isUserPlayer2 = (idUser, idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -70,6 +73,7 @@ const isUserPlayer2 = (idUser, idRoom) => {
     })
 }
 
+//fungsi untuk mengecek apakah slot player 2 belum terisi
 const isPlayer2Empty = (idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -90,6 +94,7 @@ const isPlayer2Empty = (idRoom) => {
     })
 }
 
+//fungsi untuk mengecek apakah jumlah pilihan
 const checkPilihanItem = (pilihan) => {
     return new Promise((resolve, reject) => {
         if (pilihan.length == 3) return resolve(true);
@@ -97,6 +102,7 @@ const checkPilihanItem = (pilihan) => {
     })
 }
 
+// fungsi untuk mengecek apkah pilihan player1 masih kosong
 const isPilihanPlayer1Empty = (idRoom) => {
     return new Promise((resolve, reject) => {
         Detail_room.findOne({
@@ -117,6 +123,7 @@ const isPilihanPlayer1Empty = (idRoom) => {
     })
 }
 
+// fungsi untuk menginputkan pilihan player1
 const insertPilihanPlayer1 = (pilihan, idRoom) => {
     return new Promise((resolve, reject) => {
         if (pilihan.length == 3) {
@@ -128,8 +135,9 @@ const insertPilihanPlayer1 = (pilihan, idRoom) => {
                         jenis_player: 'player1'
                     }
                 })
-                .then(() => {
-                    resolve("player 1 berhasil input pilihan")
+                .then(async () => {
+                    let hasil = await hitungHasil(idRoom) // mengitung hasil jika game sudah selesai
+                    resolve("player 1 berhasil input pilihan (" + hasil + ")")
                 })
 
         } else {
@@ -137,6 +145,8 @@ const insertPilihanPlayer1 = (pilihan, idRoom) => {
         }
     })
 }
+
+//fungsi untuk menginputkan pilihan player 2
 const insertPilihanPlayer2 = (idUser, pilihan, idRoom) => {
     return new Promise((resolve, reject) => {
         if (pilihan.length == 3) {
@@ -149,8 +159,9 @@ const insertPilihanPlayer2 = (idUser, pilihan, idRoom) => {
                         jenis_player: 'player2'
                     }
                 })
-                .then(() => {
-                    resolve("player 2 berhasil input pilihan")
+                .then(async () => {
+                    let hasil = await hitungHasil(idRoom) // mengitung hasil jika game sudah selesai
+                    resolve("player 2 berhasil input pilihan (" + hasil + ")")
                 })
 
         } else {
@@ -159,6 +170,7 @@ const insertPilihanPlayer2 = (idUser, pilihan, idRoom) => {
     })
 }
 
+// fungsi aturan game suit
 const rule = (player1, player2) => {
     if (player1 == player2) return "seri";
     if (player1 == "batu") return (player2 == "kertas") ? "player2" : "player1";
@@ -166,61 +178,121 @@ const rule = (player1, player2) => {
     if (player1 == "gunting") return (player2 == "kertas") ? "player1" : "player2";
 }
 
-const hitungHasil = async (idRoom) => {
+// fungsi untuk menghitung hasil pemenang game
+const hitungHasil = (idRoom) => {
+    return new Promise(async (resolve, reject) => {
+        let fightEnd = await isFightEnd(idRoom)
+        if (!fightEnd) return resolve("sedang menunggu lawan memilih");
+        let player1,
+            player2,
+            hasilTemp = [];
+        await Detail_room.findOne({
+                attributes: ['id_user', 'pilihan_player'],
+                where: {
+                    jenis_player: 'player1',
+                    id_room: idRoom
+                }
+            })
+            .then((player) => {
+                player1 = {
+                    id_user: player.id_user,
+                    pilihan_player: player.pilihan_player
+                };
 
-    let player1,
-        player2,
-        hasilTemp = [];
-    await Detail_room.findOne({
-            attributes: ['id_user', 'pilihan_player'],
-            where: {
-                jenis_player: 'player1',
-                id_room: idRoom
-            }
+            })
+        await Detail_room.findOne({
+                attributes: ['id_user', 'pilihan_player'],
+                where: {
+                    jenis_player: 'player2',
+                    id_room: idRoom
+                }
+            })
+            .then((player) => {
+                player2 = {
+                    id_user: player.id_user,
+                    pilihan_player: player.pilihan_player
+                };
+
+            })
+
+        for (let i = 0; i <= 2; i++) {
+            hasilTemp.push(rule(player1.pilihan_player[i], player2.pilihan_player[i]))
+
+        }
+        console.log(hasilTemp)
+        let hasilPlayer1 = 0,
+            hasilPlayer2 = 0;
+        hasilTemp.forEach((hasil) => {
+            if (hasil == "player1") return hasilPlayer1++;
+            if (hasil == "player2") return hasilPlayer2++;
         })
-        .then((player) => {
-            player1 = {
-                id_user: player.id_user,
-                pilihan_player: player.pilihan_player
-            };
+        let data = {
+            player1: player1.id_user,
+            player2: player2.id_user,
+            hasil1: hasilPlayer1,
+            hasil2: hasilPlayer2
+        };
 
-        })
-    await Detail_room.findOne({
-            attributes: ['id_user', 'pilihan_player'],
-            where: {
-                jenis_player: 'player2',
-                id_room: idRoom
-            }
-        })
-        .then((player) => {
-            player2 = {
-                id_user: player.id_user,
-                pilihan_player: player.pilihan_player
-            };
-
+        await insertGameHistory({
+            data
         })
 
-    for (let i = 0; i <= 2; i++) {
-        hasilTemp.push(rule(player1.pilihan_player[i], player2.pilihan_player[i]))
-
-    }
-    console.log(hasilTemp)
-    return new Promise((resolve, reject) => {
-        resolve(hasilTemp)
+        resolve("game selesai")
     })
 }
 
+// fungsi untuk memasukkan hasil pemenang game ke tabel history
+const insertGameHistory = async ({
+    data
+}) => {
+    if (data.hasil1 == data.hasil2) {
+        await User_game_history.create({
+            user_id: data.player1,
+            result: "seri"
+        })
+        await User_game_history.create({
+            user_id: data.player2,
+            result: "seri"
+        })
+
+    }
+    if (data.hasil1 > data.hasil2) {
+        await User_game_history.create({
+            user_id: data.player1,
+            result: "menang"
+        })
+        await User_game_history.create({
+            user_id: data.player2,
+            result: "kalah"
+        })
+    }
+
+    if (data.hasil1 < data.hasil2) {
+        await User_game_history.create({
+            user_id: data.player1,
+            result: "kalah"
+        })
+        await User_game_history.create({
+            user_id: data.player2,
+            result: "menang"
+        })
+    }
+
+    return new Promise((resolve, reject) => {
+        resolve('selesai')
+    })
+}
 
 const fight = async (req, res) => {
     // res.send(await hitungHasil(req.params.idRoom))
     let fightEnd = await isFightEnd(req.params.idRoom)
+    if (fightEnd) return res.send("gam sudah selesai"); // jika game selesai maka endpind tidak bisa diakses
     let userPlayer1 = await isUserPlayer1(req.user.id, req.params.idRoom)
     let userPlayer2 = await isUserPlayer2(req.user.id, req.params.idRoom)
     let player2Empty = await isPlayer2Empty(req.params.idRoom)
     // let pilihanItem = await checkPilihanItem(req.body.pilihan)
     let pilihanPlayer1Empty = await isPilihanPlayer1Empty(req.params.idRoom)
 
-    if (fightEnd) return res.send("gam sudah selesai"); // jika game selesai maka endpind tidak bisa diakses
     if (userPlayer1 && !pilihanPlayer1Empty) return res.send("player1 sudah memilih") // jika user adalah player 1 dan pilihan masih kosong maka isi pilihan player 1
     if (userPlayer1 && pilihanPlayer1Empty) return res.send(await insertPilihanPlayer1(req.body.pilihan, req.params.idRoom)) // jika user adalah player1 dan pilihan sudah terisis maka player 1 sudah memilih
     if (userPlayer2) return res.send("player 2 telah memilih") // jika user adalah player 2 maka player 2 sudah memilih ( karena ketika insert pilihan sekaligus insert iduser)
@@ -246,6 +318,7 @@ const createRoom = (req, res) => {
 
 }
 
+//fungsi untuk men generete isi dari table detail room
 const genereteDetailRoom = (idRoom, idUser) => {
     let jenis_player;
     let player;

@@ -4,8 +4,10 @@
 * crud user MVC : `sudah`
 * api creat room : `sudah`
 * api figh : `sudah`
-* fungsi hitung hasil pilihan player : `belum`
+* fungsi hitung hasil pilihan player : `sudah`
 * batasan akses route untuk userplayer dan superuser : `belum`
+* test
+
 
 # ALUR LOGIN
 *   user memasukkan username password
@@ -29,4 +31,6 @@
 
  ## GAME
  * `GET '/games'` untuk mengakses halaman game
+ * `GET '/games/create-room'` untuk membuat room
+ * `GET '/games/fight/:idRoom'` untuk mengakses pertandingan
 
