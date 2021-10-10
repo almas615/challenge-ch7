@@ -285,6 +285,11 @@ app.use(router);
 //     res.render('erorPage/notFound')
 // })
 
-app.listen(port, () => {
-    console.log('server nyala di port 3000!');
+// app.listen(port, () => {
+//     console.log('server nyala di port 3000!');
+// });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server nyala di port ${PORT}`)
 });

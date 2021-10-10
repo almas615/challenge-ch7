@@ -220,7 +220,7 @@ const fight = async (req, res) => {
     // let pilihanItem = await checkPilihanItem(req.body.pilihan)
     let pilihanPlayer1Empty = await isPilihanPlayer1Empty(req.params.idRoom)
 
-    if (fightEnd) return res.send("gam sudah selesai"); // jika game selesai maka endpind tidak bisa diakses
+    if (fightEnd) return res.send("game sudah selesai"); // jika game selesai maka endpind tidak bisa diakses
     if (userPlayer1 && !pilihanPlayer1Empty) return res.send("player1 sudah memilih") // jika user adalah player 1 dan pilihan masih kosong maka isi pilihan player 1
     if (userPlayer1 && pilihanPlayer1Empty) return res.send(await insertPilihanPlayer1(req.body.pilihan, req.params.idRoom)) // jika user adalah player1 dan pilihan sudah terisis maka player 1 sudah memilih
     if (userPlayer2) return res.send("player 2 telah memilih") // jika user adalah player 2 maka player 2 sudah memilih ( karena ketika insert pilihan sekaligus insert iduser)

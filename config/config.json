@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "123",
-    "database": "gameSuit_development",
+    "password": "Myd@t@b@s3",
+    "database": "db_new_game_suit",
     "host": "localhost",
     "dialect": "postgres"
   },

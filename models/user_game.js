@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
         username,
         email,
         password: encryptedPassword,
-        hak_akses: 'super_user'
+        hak_akses: "super_user"
       })
     }
     // Method untuk melakukan enkripsi

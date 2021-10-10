@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Room, {
         foreignKey: 'id_room',
         sourceKey: 'id',
-        as: 'detail_room'
+        as: 'room_detail'
       });
       this.belongsTo(models.User_game, {
         foreignKey: 'id_user',

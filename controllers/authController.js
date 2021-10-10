@@ -56,6 +56,12 @@ const whoami = (req, res) => {
     res.json(currentUser)
 }
 
+const getLogout = (req, res) => {
+  req.session.destroy();
+  res.redirect('/auth/login')
+  console.log('You successfully logged out')
+}
+
 
 module.exports = {
     getLogin,
@@ -63,5 +69,5 @@ module.exports = {
     postRegister,
     postLogin,
     whoami,
-
+    getLogout
 }
