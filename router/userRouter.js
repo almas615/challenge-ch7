@@ -2,6 +2,7 @@ const router = require('express').Router();
 const user = require("../controllers/userController")
 const restrict = require('../middlewares/restrict')
 const role = require('../middlewares/role');
+const onlySuperUser = require('../middlewares/superUser');
 
 router.get('/', restrict, onlySuperUser, user.getUsers)
 
