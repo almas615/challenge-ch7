@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "postgres",
-        "password": "lkjh12",
-        "database": "ch7_development",
+        "password": "123",
+        "database": "gameSuit_development",
         "host": "localhost",
         "dialect": "postgres"
     },
