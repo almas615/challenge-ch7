@@ -5,7 +5,7 @@
 * api creat room : `sudah`
 * api figh : `sudah`
 * fungsi hitung hasil pilihan player : `sudah`
-* batasan akses route untuk userplayer dan superuser : `belum`
+* batasan akses route untuk userplayer dan superuser : `sudah`
 * test
 
 
