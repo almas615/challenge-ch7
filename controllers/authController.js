@@ -56,6 +56,24 @@ const whoami = (req, res) => {
     res.json(currentUser)
 }
 
+//api
+const apiRegister = (req, res, next) => {
+    User_game.register(req.body)
+        .then((data) => {
+            res.json(data)
+        })
+        .catch(err => next(err))
+}
+
+const apiLogin = (req, res) => {
+    User_game.authenticate(req.body)
+        .then(user => {
+            res.json(
+                format(user)
+            )
+        });
+}
+
 
 module.exports = {
     getLogin,
@@ -63,5 +81,6 @@ module.exports = {
     postRegister,
     postLogin,
     whoami,
-
+    apiRegister,
+    apiLogin,
 }

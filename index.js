@@ -3,7 +3,9 @@ const app = express();
 const fs = require('fs');
 const session = require('express-session');
 const flash = require('express-flash');
-const port = process.env.PORT || 8000;
+// const port = process.env.PORT || 8000;
+const { PORT = 4000 } = process.env
+
 
 
 
@@ -18,7 +20,8 @@ app.use(session({
     saveUninitialized: false
 }))
 const passport = require('./lib/passport');
-app.use(passport.initialize());
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(flash());
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -285,6 +288,6 @@ app.use(router);
 //     res.render('erorPage/notFound')
 // })
 
-app.listen(port, () => {
-    console.log('server nyala di port 3000!');
-});
+app.listen(PORT, () => {
+    console.log(`Server nyala di port ${PORT}`)
+})
