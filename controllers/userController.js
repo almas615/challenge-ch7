@@ -92,9 +92,25 @@ const updateUser = (req, res) => {
                 })
         })
 }
+
+const getUsersAll = (req, res) => {
+    User_game.findAll({
+            include: {
+                model: User_game_biodata,
+                as: 'biodata'
+            },
+            // where: {
+            //     hak_akses: "user"
+            // }
+        })
+        .then(user => {
+            res.json(user)
+        });
+}
 module.exports = {
     getUsers,
     postUsers,
     deleteUser,
-    updateUser
+    updateUser,
+    getUsersAll
 }
