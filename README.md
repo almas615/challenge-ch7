@@ -7,8 +7,8 @@
 * fungsi hitung hasil pilihan player : `sudah`
 * batasan akses route untuk userplayer dan superuser : `sudah`
 
-#JOBDESK
-* Merubah dashboard menhadi mvc : `Aka`
+# JOBDESK
+* Merubah dashboard menjadi mvc : `Aka`
 * authentifikasi JWT : `Satrio`
 * Api create-room dan fight : `Almas`
 * Authorisasi hak akses dan template engine : `Rista`
