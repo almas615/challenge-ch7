@@ -6,7 +6,12 @@
 * api figh : `sudah`
 * fungsi hitung hasil pilihan player : `sudah`
 * batasan akses route untuk userplayer dan superuser : `sudah`
-* test
+
+#JOBDESK
+*Merubah dashboard menhadi mvc : `Aka`
+*authentifikasi JWT : `Satrio`
+*Api create-room dan fight : `Almas`
+*Authorisasi hak akses dan template engine : `Rista`
 
 
 # ALUR LOGIN
